@@ -27,9 +27,9 @@ namespace cllwx.Services
             {
                 { "Low", () =>  sortedProductList = productListSorter.LowToHigh(unsortedProductList) },
                 { "High", () => sortedProductList = productListSorter.HighToLow(unsortedProductList) },
-                { "Ascending", () => Console.WriteLine("Case 3") },
-                { "Descending", () => Console.WriteLine("Case 3") },
-                { "Recommended", () => Console.WriteLine("Case 3") },
+                { "Ascending", () => sortedProductList = productListSorter.AlphabeticallyAscending(unsortedProductList) },
+                { "Descending", () => sortedProductList = productListSorter.AlphabeticallyDescending(unsortedProductList) },
+                { "Recommended", () => sortedProductList = productListSorter.HighestRecommendedFirst(unsortedProductList) },
             };
             triggerSortingFunction[sortOption]();
             return sortedProductList;

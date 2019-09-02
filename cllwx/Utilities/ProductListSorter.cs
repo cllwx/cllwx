@@ -31,5 +31,27 @@ namespace cllwx.Utilities
                     .OrderByDescending(x => x.price)
                     .ToList();
         }
+
+        public List<Product> AlphabeticallyAscending(List<Product> unsortedProductList)
+        {
+            return unsortedProductList
+                    .Where(x => x != null)
+                    .OrderBy(x => x.name)
+                    .ToList();
+        }
+
+        public List<Product> AlphabeticallyDescending(List<Product> unsortedProductList)
+        {
+            return unsortedProductList
+                    .Where(x => x != null)
+                    .OrderByDescending(x => x.name)
+                    .ToList();
+        }
+
+        public List<Product> HighestRecommendedFirst(List<Product> unsortedProductList)
+        {
+            throw new NotImplementedException();
+
+        }
     }
 }

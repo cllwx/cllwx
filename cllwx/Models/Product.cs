@@ -8,7 +8,7 @@ namespace cllwx.Models
     public class Product
     {
         public string name { get; set; }
-        public float price { get; set; }
-        public float quantity { get; set; }
+        public double price { get; set; }
+        public double quantity { get; set; }
     }
 }

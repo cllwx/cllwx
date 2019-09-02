@@ -18,21 +18,8 @@ namespace cllwx.Services
     {
         public async Task<List<Product>> BuildProductList(string sortOption)
         {
-            return await GetUnsortedProducts();
-        }
-
-        public async Task<List<Product>> GetUnsortedProducts()
-        {
-            var token = "95ff5f68-f734-4a72-8e81-d2f8c8e983b5";
-            var uri = "http://dev-wooliesx-recruitment.azurewebsites.net/api/resource/products?token=" + token;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-            using (HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                var json = await reader.ReadToEndAsync();
-                return JsonConvert.DeserializeObject<List<Product>>(json);
-            }
+            var resourceGatherer = new ResourceGatheringService();
+            return await resourceGatherer.GetUnsortedProducts();
         }
     }
 }

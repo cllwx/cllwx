@@ -15,7 +15,10 @@ namespace cllwx.Controllers
         [HttpGet("user")]
         public IActionResult Get()
         {
-            return new ObjectResult(new User { name = "Christopher Lyndon", token = "95ff5f68-f734-4a72-8e81-d2f8c8e983b5" }) { StatusCode = 200 };
+            return new ObjectResult(new User {
+                name = "Christopher Lyndon",
+                token = "95ff5f68-f734-4a72-8e81-d2f8c8e983b5"
+            }) { StatusCode = 200 };
         }  
     }
 }

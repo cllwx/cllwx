@@ -1,4 +1,5 @@
 ﻿using cllwx.Models;
+using cllwx.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,19 @@ namespace cllwx.Services
         public async Task<List<Product>> BuildProductList(string sortOption)
         {
             var resourceGatherer = new ResourceGatheringService();
-            return await resourceGatherer.GetUnsortedProducts();
+            var unsortedProductList = await resourceGatherer.GetUnsortedProducts();
+            var productListSorter = new ProductListSorter();
+            List<Product> sortedProductList = unsortedProductList;
+            var triggerSortingFunction = new Dictionary<string, Action>
+            {
+                { "Low", () =>  sortedProductList = productListSorter.LowToHigh(unsortedProductList) },
+                { "High", () => sortedProductList = productListSorter.HighToLow(unsortedProductList) },
+                { "Ascending", () => Console.WriteLine("Case 3") },
+                { "Descending", () => Console.WriteLine("Case 3") },
+                { "Recommended", () => Console.WriteLine("Case 3") },
+            };
+            triggerSortingFunction[sortOption]();
+            return sortedProductList;
         }
     }
 }

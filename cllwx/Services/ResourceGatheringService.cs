@@ -15,9 +15,9 @@ namespace cllwx.Services
     }
     public class ResourceGatheringService
     {
+        private string token = "95ff5f68-f734-4a72-8e81-d2f8c8e983b5";
         public async Task<List<Product>> GetUnsortedProducts()
         {
-            var token = "95ff5f68-f734-4a72-8e81-d2f8c8e983b5";
             var uri = "http://dev-wooliesx-recruitment.azurewebsites.net/api/resource/products?token=" + token;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             using (HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync())

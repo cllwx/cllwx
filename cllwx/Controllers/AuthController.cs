@@ -11,5 +11,11 @@ namespace cllwx.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        [HttpGet("user")]
+        public IActionResult Get()
+        {
+            var user = "test";
+            return Ok(user);
+        }  
     }
 }

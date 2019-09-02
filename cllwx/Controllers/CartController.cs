@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using cllwx.Utilities;
 using cllwx.Models;
 using Newtonsoft.Json;
+using cllwx.Services;
+using Newtonsoft.Json.Linq;
 
 namespace cllwx.Controllers
 {
@@ -19,12 +21,11 @@ namespace cllwx.Controllers
     public class CartController : ControllerBase
     {
         [HttpPost("trolleyTotal")]
-        public IActionResult GetLowestPossibleTotal([FromBody] Trolley trolley)
+        public async Task<IActionResult> GetLowestPossibleTotal([FromBody] JObject trolley)
         {
-            //var httpUtil = new HttpReaders();
-            //string bodyData = httpUtil.ReadBodyAsString(context.HttpContext.Request);
-            var jsonObj = JsonConvert.SerializeObject(trolley);
-            return new ObjectResult(jsonObj) { StatusCode = 200 };
+            var jsonString = JsonConvert.SerializeObject(trolley);
+            var cheapestTotal = await (new ResourceGatheringService()).GetCheapestTotal(jsonString);
+            return new ObjectResult(cheapestTotal) { StatusCode = 200 };
         }
     }
 }

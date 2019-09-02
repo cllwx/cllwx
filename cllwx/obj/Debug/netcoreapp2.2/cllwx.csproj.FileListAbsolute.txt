@@ -11,4 +11,3 @@ C:\Users\Chris\Desktop\VS Projects\cllwx\cllwx\obj\Debug\netcoreapp2.2\cllwx.Raz
 C:\Users\Chris\Desktop\VS Projects\cllwx\cllwx\bin\Debug\netcoreapp2.2\cllwx.pdb
 C:\Users\Chris\Desktop\VS Projects\cllwx\cllwx\obj\Debug\netcoreapp2.2\cllwx.dll
 C:\Users\Chris\Desktop\VS Projects\cllwx\cllwx\obj\Debug\netcoreapp2.2\cllwx.pdb
-C:\Users\Chris\Desktop\VS Projects\cllwx\cllwx\obj\Debug\netcoreapp2.2\cllwx.csprojAssemblyReference.cache

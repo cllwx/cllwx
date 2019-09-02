@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace cllwx.Services
@@ -12,6 +14,8 @@ namespace cllwx.Services
     public interface IResourceGatheringService
     {
         Task<List<Product>> GetUnsortedProducts();
+        Task<List<Cart>> GetShopperHistory();
+        Task<int> GetCheapestTotal();
     }
     public class ResourceGatheringService
     {
@@ -40,6 +44,16 @@ namespace cllwx.Services
                 var json = await reader.ReadToEndAsync();
                 return JsonConvert.DeserializeObject<List<Cart>>(json);
             }
+        }
+
+        public async Task<string> GetCheapestTotal(string jsonString)
+        {
+            HttpClient client = new HttpClient();
+            var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+            var uri = "http://dev-wooliesx-recruitment.azurewebsites.net/api/resource/trolleyCalculator?Token=" + token;
+            var response = await client.PostAsync(uri, content);
+            var responseString = await response.Content.ReadAsStringAsync();
+            return responseString;
         }
     }
 }

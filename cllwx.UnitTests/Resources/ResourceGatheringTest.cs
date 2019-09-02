@@ -1,6 +1,7 @@
 ﻿using cllwx.Models;
 using cllwx.Services;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -90,6 +91,44 @@ namespace Tests
                 Assert.NotNull(resourceGatheringService);
                 Assert.IsInstanceOf<List<Cart>>(cartList);
                 Assert.AreEqual(JsonConvert.SerializeObject(cartList), JsonConvert.SerializeObject(expectedResult));
+            }
+            catch (AssertionException e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+            }
+        }
+
+        [Test]
+        public async Task TestGetUser()
+        {
+            var resourceGatheringService = new ResourceGatheringService();
+            var trolley = new Trolley()
+            {
+                Products = new List<ProductItem>()
+                {
+                    new ProductItem() { Name = "string", Price = 10.10 }
+                },
+                Specials = new List<SpecialItem>()
+                {
+                    new SpecialItem() {
+                        Quantities = new List<QuantityItem>()
+                        {
+                            new QuantityItem() { Name = "string", Quantity = 3 }
+                        },
+                        Total = 20.20
+                    }
+                },
+                Quantities = new List<QuantityItem>()
+                {
+                    new QuantityItem() { Name = "string", Quantity = 3 }
+                }
+            };
+            var jsonString = JsonConvert.SerializeObject(trolley);
+            var result = await resourceGatheringService.GetCheapestTotal(jsonString);
+            try
+            {
+                Assert.NotNull(result);
+                Assert.AreEqual(result, "20.2");
             }
             catch (AssertionException e)
             {

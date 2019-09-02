@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Tests
 {
-    public class AuthControllerTests
+    public class AuthControllerTest
     {
         [Test]
         public void TestGetUser()

@@ -13074,7 +13074,8 @@
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.3",
-      "Swashbuckle.AspNetCore >= 5.0.0-rc2"
+      "Swashbuckle.AspNetCore >= 5.0.0-rc2",
+      "System.Collections >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -13142,6 +13143,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.0.0-rc2, )"
+          },
+          "System.Collections": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           }
         },
         "imports": [

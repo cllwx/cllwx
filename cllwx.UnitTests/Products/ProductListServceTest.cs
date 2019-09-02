@@ -16,11 +16,11 @@ namespace Tests
             var productList = await productListService.BuildProductList("Low");
             var expectedResult = new List<Product>()
             {
-                {new Product { name = "Test Product D", price = 5.0, quantity = 0.0} },
-                {new Product { name = "Test Product C", price = 10.99, quantity = 0.0} },
-                {new Product { name = "Test Product A", price = 99.99, quantity = 0.0} },
-                {new Product { name = "Test Product B", price = 101.99, quantity = 0.0} },
-                {new Product { name = "Test Product F", price = 999999999999.0, quantity = 0.0} }
+                {new Product { Name = "Test Product D", Price = 5.0, Quantity = 0.0} },
+                {new Product { Name = "Test Product C", Price = 10.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product A", Price = 99.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product B", Price = 101.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product F", Price = 999999999999.0, Quantity = 0.0} }
             };
             try
             {
@@ -41,11 +41,11 @@ namespace Tests
             var productList = await productListService.BuildProductList("High");
             var expectedResult = new List<Product>()
             {
-                {new Product { name = "Test Product F", price = 999999999999.0, quantity = 0.0} },
-                {new Product { name = "Test Product B", price = 101.99, quantity = 0.0} },
-                {new Product { name = "Test Product A", price = 99.99, quantity = 0.0} },
-                {new Product { name = "Test Product C", price = 10.99, quantity = 0.0} },
-                {new Product { name = "Test Product D", price = 5.0, quantity = 0.0} }
+                {new Product { Name = "Test Product F", Price = 999999999999.0, Quantity = 0.0} },
+                {new Product { Name = "Test Product B", Price = 101.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product A", Price = 99.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product C", Price = 10.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product D", Price = 5.0, Quantity = 0.0} }
             };
             try
             {
@@ -66,11 +66,11 @@ namespace Tests
             var productList = await productListService.BuildProductList("Ascending");
             var expectedResult = new List<Product>()
             {
-                {new Product { name = "Test Product A", price = 99.99, quantity = 0.0} },
-                {new Product { name = "Test Product B", price = 101.99, quantity = 0.0} },
-                {new Product { name = "Test Product C", price = 10.99, quantity = 0.0} },
-                {new Product { name = "Test Product D", price = 5.0, quantity = 0.0} },
-                {new Product { name = "Test Product F", price = 999999999999.0, quantity = 0.0} }
+                {new Product { Name = "Test Product A", Price = 99.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product B", Price = 101.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product C", Price = 10.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product D", Price = 5.0, Quantity = 0.0} },
+                {new Product { Name = "Test Product F", Price = 999999999999.0, Quantity = 0.0} }
             };
             try
             {
@@ -91,11 +91,11 @@ namespace Tests
             var productList = await productListService.BuildProductList("Descending");
             var expectedResult = new List<Product>()
             {
-                {new Product { name = "Test Product F", price = 999999999999.0, quantity = 0.0} },
-                {new Product { name = "Test Product D", price = 5.0, quantity = 0.0} },
-                {new Product { name = "Test Product C", price = 10.99, quantity = 0.0} },
-                {new Product { name = "Test Product B", price = 101.99, quantity = 0.0} },
-                {new Product { name = "Test Product A", price = 99.99, quantity = 0.0} }
+                {new Product { Name = "Test Product F", Price = 999999999999.0, Quantity = 0.0} },
+                {new Product { Name = "Test Product D", Price = 5.0, Quantity = 0.0} },
+                {new Product { Name = "Test Product C", Price = 10.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product B", Price = 101.99, Quantity = 0.0} },
+                {new Product { Name = "Test Product A", Price = 99.99, Quantity = 0.0} }
             };
             try
             {

@@ -5376,7 +5376,8 @@
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.3",
-          "Swashbuckle.AspNetCore": "5.0.0-rc2"
+          "Swashbuckle.AspNetCore": "5.0.0-rc2",
+          "System.Collections": "4.3.0"
         },
         "compile": {
           "bin/placeholder/cllwx.dll": {}

@@ -21,6 +21,7 @@ namespace cllwx.Services
         {
             var resourceGatherer = new ResourceGatheringService();
             var unsortedProductList = await resourceGatherer.GetUnsortedProducts();
+            var customerOrderList = await resourceGatherer.GetShopperHistory();
             var productListSorter = new ProductListSorter();
             List<Product> sortedProductList = unsortedProductList;
             var triggerSortingFunction = new Dictionary<string, Action>
@@ -29,7 +30,7 @@ namespace cllwx.Services
                 { "High", () => sortedProductList = productListSorter.HighToLow(unsortedProductList) },
                 { "Ascending", () => sortedProductList = productListSorter.AlphabeticallyAscending(unsortedProductList) },
                 { "Descending", () => sortedProductList = productListSorter.AlphabeticallyDescending(unsortedProductList) },
-                { "Recommended", () => sortedProductList = productListSorter.HighestRecommendedFirst(unsortedProductList) },
+                { "Recommended", () => sortedProductList = productListSorter.HighestRecommendedFirst(customerOrderList) },
             };
             triggerSortingFunction[sortOption]();
             return sortedProductList;

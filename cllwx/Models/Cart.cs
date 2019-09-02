@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace cllwx.Models
 {
-    public class User
+    public class Cart
     {
-        public string Name { get; set; }
-        public string Token { get; set; }
+        public int CustomerId { get; set; }
+        public List<Product> Products { get; set; }
     }
 }

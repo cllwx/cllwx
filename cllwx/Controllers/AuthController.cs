@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using cllwx.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,8 +15,7 @@ namespace cllwx.Controllers
         [HttpGet("user")]
         public IActionResult Get()
         {
-            var user = "test";
-            return Ok(user);
+            return new ObjectResult(new User { name = "Chris Lyndon", token = "95ff5f68-f734-4a72-8e81-d2f8c8e983b5" }) { StatusCode = 200 };
         }  
     }
 }

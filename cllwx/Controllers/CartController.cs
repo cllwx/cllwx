@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using cllwx.Utilities;
+using cllwx.Models;
+using Newtonsoft.Json;
 
 namespace cllwx.Controllers
 {
@@ -16,12 +18,13 @@ namespace cllwx.Controllers
     [ApiController]
     public class CartController : ControllerBase
     {
-        [HttpGet("trolleyTotal")]
-        public IActionResult GetLowestPossibleTotal(ActionExecutedContext context)
+        [HttpPost("trolleyTotal")]
+        public IActionResult GetLowestPossibleTotal([FromBody] Trolley trolley)
         {
-            var httpUtil = new HttpReaders();
-            string bodyData = httpUtil.ReadBodyAsString(context.HttpContext.Request);
-            return Ok(bodyData);
+            //var httpUtil = new HttpReaders();
+            //string bodyData = httpUtil.ReadBodyAsString(context.HttpContext.Request);
+            var jsonObj = JsonConvert.SerializeObject(trolley);
+            return new ObjectResult(jsonObj) { StatusCode = 200 };
         }
     }
 }
